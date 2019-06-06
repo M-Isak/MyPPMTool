@@ -1,4 +1,4 @@
-package domain;
+package com.mohaisak.ppmtool.domain;
 
 import java.util.Date;
 
