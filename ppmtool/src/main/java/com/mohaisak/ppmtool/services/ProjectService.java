@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mohaisak.ppmtool.domain.Project;
+import com.mohaisak.ppmtool.exceptions.ProjectIdException;
 import com.mohaisak.ppmtool.repositories.ProjectRepository;
 
 @Service
@@ -16,7 +17,17 @@ public class ProjectService {
 		
 		//logic
 		
-		return projectRepository.save(project);
+		try {
+			
+			project.setProjectIdentifier(project.getProjectIdentifier().toUpperCase());
+			return projectRepository.save(project);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			throw new ProjectIdException("Project ID '"+project.getProjectIdentifier().toUpperCase()+"' Already Exists");
+		}
+		
+		
 	}
 
 }
