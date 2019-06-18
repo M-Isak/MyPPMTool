@@ -8,7 +8,7 @@ class Dashboard extends Component {
         return ( <
             div >
             <
-            h1 > Welcome to Dashboard < /h1>
+            h1 className = "alert alert-warning" > Welcome to Dashboard < /h1>
 
             <
             ProjectItem / >
